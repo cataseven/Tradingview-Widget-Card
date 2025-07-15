@@ -1,4 +1,4 @@
-# TradingView Multi-Widget Card for Home Assistant
+# TradingView Widget Card for Home Assistant
 
 This custom card allows you to embed five different, fully configurable TradingView widgets into your Home Assistant dashboards. With a single card file, you can display market data in a variety of formats.
 
@@ -23,17 +23,17 @@ This custom card allows you to embed five different, fully configurable TradingV
 2.  Go to HACS > Frontend.
 3.  Click the three dots in the top right corner and select **"Custom repositories"**.
 4.  Add the repository URL, select the **"Lovelace"** category, and click "Add".
-5.  Search for `TradingView Multi-Widget Card`, select it, and install.
+5.  Search for `TradingView Widget Card`, select it, and install.
 6.  Reload your interface when prompted.
 
 ### Manual Installation
 
-1.  Download the `tradingview-multi-widget-card.js` file from the latest release of your project.
+1.  Download the `tradingview-widget-card.js` file from the latest release of your project.
 2.  Copy the file to your Home Assistant `config/www/` directory.
 3.  In Home Assistant, go to **Settings > Dashboards**.
 4.  Click the three dots in the top right and select **"Resources"**.
 5.  Click **"Add Resource"** and enter the following:
-    * **URL:** `/local/tradingview-multi-widget-card.js`
+    * **URL:** `/local/tradingview-widget-card.js`
     * **Resource Type:** `JavaScript Module`
 6.  Click **"Create"** and refresh your browser.
 
@@ -47,7 +47,7 @@ These options apply to all widget types unless otherwise noted.
 
 | Option | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `type` | string | **Required** | Must be `custom:tradingview-multi-widget-card`. |
+| `type` | string | **Required** | Must be `custom:tradingview-widget-card`. |
 | `widget_type`| string | `ticker-tape`| Specifies the widget to display. See types below. |
 | `title` | string | `(none)` | The title displayed at the top of the card. |
 | `color_theme`| string | `dark` | Color theme. Can be `dark` or `light`. |
@@ -99,7 +99,7 @@ Below are comprehensive YAML examples for each widget type, showing all availabl
 Displays a horizontally scrolling financial data tape.
 
 ```yaml
-type: custom:tradingview-multi-widget-card
+type: custom:tradingview-widget-card
 widget_type: ticker-tape      # (Default: 'ticker-tape')
 title: Markets (Scrolling Tape)
 height: 46                    # (Default: 46) Height in pixels.
@@ -119,7 +119,7 @@ pairs:
 Creates a static, vertical list of symbols.
 
 ```yaml
-type: custom:tradingview-multi-widget-card
+type: custom:tradingview-widget-card
 widget_type: tickers
 title: My Watchlist
 height: 250                   # (Default: 75)
@@ -141,7 +141,7 @@ pairs:
 Shows a detailed summary of the *first* symbol in the `pairs` list.
 
 ```yaml
-type: custom:tradingview-multi-widget-card
+type: custom:tradingview-widget-card
 widget_type: single-quote
 title: Apple Inc. (AAPL)
 height: 100                   # (Default: 100)
@@ -158,7 +158,7 @@ pairs:
 Visualizes an entire market by sector. This widget does not use the `pairs` list.
 
 ```yaml
-type: custom:tradingview-multi-widget-card
+type: custom:tradingview-widget-card
 widget_type: stock-heatmap
 title: BIST 100 Sector Heatmap
 height: 500                   # (Default: 500)
@@ -176,7 +176,7 @@ has_symbol_tooltip: true        # (Default: true) Shows symbol details on hover.
 Displays a matrix of exchange rates between selected currencies. This widget does not use the `pairs` list.
 
 ```yaml
-type: custom:tradingview-multi-widget-card
+type: custom:tradingview-widget-card
 widget_type: forex-cross-rates
 title: Forex Cross Rates
 height: 400                   # (Default: 400)
