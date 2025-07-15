@@ -2,8 +2,6 @@
 
 This custom card allows you to embed five different, fully configurable TradingView widgets into your Home Assistant dashboards. With a single card file, you can display market data in a variety of formats.
 
-![A collage showing the five different widget types available in the card.](https://i.imgur.com/uS83fR3.png)
-
 ## ✨ Features
 
 * **Five Widget Types in One:**
@@ -53,12 +51,11 @@ These options apply to all widget types unless otherwise noted.
 | `color_theme`| string | `dark` | Color theme. Can be `dark` or `light`. |
 | `locale` | string | `en` | Widget language (`tr`, `en`, `de`, etc.). |
 | `is_transparent`| boolean | `false` | If `true`, the widget's background is transparent. |
-| `width` | string/number | `100%` | The width of the widget. |
 | `height` | number | (Varies) | The height of the widget in pixels. |
 
 ### Widget-Specific Options
 
-#### `Ticker Tape` & `Tickers`
+#### `Ticker Tape` (Scrolling Tape)
 
 | Option | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -66,11 +63,22 @@ These options apply to all widget types unless otherwise noted.
 | `show_logo` | boolean | `true` | Shows the logos next to the symbols. |
 | `display_mode` | string | `regular` | **(Ticker Tape only)** Display mode. Currently only `regular` is supported. |
 
+#### `Tickers`
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `pairs` | list | **Required** | A list of symbols to display. Can be simple strings (e.g., `BIST:XU100`) or objects for the `tickers` type (e.g., `{ proName: '..', title: '..' }`). |
+| `show_logo` | boolean | `true` | Shows the logos next to the symbols. |
+| `display_mode` | string | `regular` | **(Ticker Tape only)** Display mode. Currently only `regular` is supported. |
+
+
 #### `Single Quote`
 
 | Option | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `pairs` | list | **Required** | A list containing the single symbol to display. Only the first item in the list is used. |
+
+
 
 #### `Stock Heatmap`
 
@@ -81,12 +89,16 @@ These options apply to all widget types unless otherwise noted.
 | `is_zoom_enabled`| boolean | `true` | Enables zooming into the map with the mouse wheel. |
 | `has_symbol_tooltip`| boolean| `true` | Shows a detail tooltip when hovering over a symbol. |
 
+
+
 #### `Forex Cross Rates`
 
 | Option | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `currencies` | list | **Required** | A list of currency codes to compare (e.g., `"USD"`, `"EUR"`, `"TRY"`). Must contain at least two. |
 | `background_color`| string | `(none)` | Sets a specific background color for the widget using a hex code (e.g., `'#131722'`). |
+
+
 
 ---
 
@@ -113,6 +125,7 @@ pairs:
   - BINANCE:BTCUSDTPERP
   - BIST:XU100
 ```
+![image1](images/scroll.png)
 
 ### 2. Tickers
 
@@ -129,12 +142,11 @@ show_logo: true
 # For this mode, assigning a custom title to each symbol is best practice.
 pairs:
   - proName: BIST:XU100
-    title: Borsa Istanbul 100
+    title: BORSA ISTANBUL
   - proName: SAXO:XAUUSD
-    title: Gold / Dollar
-  - proName: BITSTAMP:BTCUSD
-    title: Bitcoin (USD)
+    title: GOLD / USD
 ```
+![image2](images/static.png)
 
 ### 3. Single Quote
 
@@ -145,13 +157,13 @@ type: custom:tradingview-widget-card
 widget_type: single-quote
 title: Apple Inc. (AAPL)
 height: 100                   # (Default: 100)
-width: '100%'                 # (Default: '100%')
 color_theme: dark
 locale: en
 # ONLY the first symbol in the 'pairs' list is used.
 pairs:
   - NASDAQ:AAPL
 ```
+![image3](images/single.png)
 
 ### 4. Stock Heatmap
 
@@ -170,6 +182,7 @@ grouping: sector                # (Default: 'sector') How to group symbols. e.g.
 is_zoom_enabled: true           # (Default: true) Enables zooming into the map.
 has_symbol_tooltip: true        # (Default: true) Shows symbol details on hover.
 ```
+![image4](images/heatmap.png)
 
 ### 5. Forex Cross Rates
 
@@ -180,7 +193,6 @@ type: custom:tradingview-widget-card
 widget_type: forex-cross-rates
 title: Forex Cross Rates
 height: 400                   # (Default: 400)
-width: '100%'                 # (Default: '100%')
 color_theme: dark
 locale: en
 # --- Cross Rates Specific Options ---
@@ -193,3 +205,4 @@ currencies:                   # (Required) At least 2 currency codes.
   - JPY
 background_color: '#131722'   # (Optional) A specific background color hex code.
 ```
+![image5](images/cross.png)
