@@ -206,3 +206,6 @@ currencies:                   # (Required) At least 2 currency codes.
 background_color: '#131722'   # (Optional) A specific background color hex code.
 ```
 ![image5](images/cross.png)
+
+## ⭐ Support
+If you like this card, feel free to ⭐ star the project on GitHub and share it with the Home Assistant community!
