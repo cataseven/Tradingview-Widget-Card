@@ -20,7 +20,8 @@ This custom card allows you to embed five different, fully configurable TradingV
 1.  If you don't have it, install [HACS](https://hacs.xyz/).
 2.  Go to HACS > Frontend.
 3.  Search for `TradingView Widget Card`, select it, and install.
-4.  Clear your browser' or mobile HA app's cache 5.  Ctrl+F5 for browsers
+4.  Clear your browser' or mobile HA app's cache
+5.  Ctrl+F5 for browsers
 
 ### Manual Installation
 
