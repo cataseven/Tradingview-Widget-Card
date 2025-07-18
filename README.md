@@ -19,10 +19,8 @@ This custom card allows you to embed five different, fully configurable TradingV
 
 1.  If you don't have it, install [HACS](https://hacs.xyz/).
 2.  Go to HACS > Frontend.
-3.  Click the three dots in the top right corner and select **"Custom repositories"**.
-4.  Add the repository URL, select the **"Lovelace"** category, and click "Add".
-5.  Search for `TradingView Widget Card`, select it, and install.
-6.  Reload your interface when prompted.
+3.  Search for `TradingView Widget Card`, select it, and install.
+4.  Clear your browser' or mobile HA app's cache 5.  Ctrl+F5 for browsers
 
 ### Manual Installation
 
