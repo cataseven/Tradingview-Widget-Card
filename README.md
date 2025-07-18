@@ -26,11 +26,11 @@ This custom card allows you to embed five different, fully configurable TradingV
 ### Manual Installation
 
 1.  Download the `tradingview-widget-card.js` file from the latest release of your project.
-2.  Copy the file to your Home Assistant `config/www/tradingview-widget-card/` directory.
+2.  Copy the file to your Home Assistant `config/www/Tradingview-Widget-Card/` directory.
 3.  In Home Assistant, go to **Settings > Dashboards**.
 4.  Click the three dots in the top right and select **"Resources"**.
 5.  Click **"Add Resource"** and enter the following:
-    * **URL:** `/local/tradingview-widget-card/tradingview-widget-card.js`
+    * **URL:** `/local/Tradingview-Widget-Card/tradingview-widget-card.js`
     * **Resource Type:** `JavaScript Module`
 6.  Click **"Create"** and refresh your browser.
 
