@@ -32,7 +32,7 @@ This custom card allows you to embed five different, fully configurable TradingV
 5.  Click **"Add Resource"** and enter the following:
     * **URL:** `/local/tradingview/tradingview-widget-card.js`
     * **Resource Type:** `JavaScript Module`
-6.  Click **"Create"** and cler your browser's cache, refresh your browser via Ctrl+f5.
+6.  Click **"Create"** and claer your browser's cache, refresh your browser via Ctrl+f5.
 
 ---
 
