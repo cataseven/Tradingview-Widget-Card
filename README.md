@@ -87,6 +87,7 @@ Please refer to the **visual editor** for most configuration. Manual YAML is sti
 Check the documentation or visual editor for the latest syntax.
 
 ### Ticker Tape
+![image1](images/scroll.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: ticker-tape
@@ -137,6 +138,7 @@ Check the documentation or visual editor for the latest syntax.
 ```
 
 ### Stock Heatmap
+![image1](images/heatmap.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: stock-heatmap
@@ -177,6 +179,7 @@ Check the documentation or visual editor for the latest syntax.
   width: 100%
 ```
 ### Forex Cross Rates
+![image1](images/cross.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: forex-cross-rates
