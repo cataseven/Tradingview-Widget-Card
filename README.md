@@ -1,210 +1,274 @@
 # TradingView Widget Card for Home Assistant
 
-This custom card allows you to embed five different, fully configurable TradingView widgets into your Home Assistant dashboards. With a single card file, you can display market data in a variety of formats.
+This custom card allows you to embed **ten different**, fully configurable TradingView widgets into your Home Assistant dashboards. With a single card file, you can display market data in a variety of formats.
+
+> ⚠️ This is v2.0 — a complete rewrite. All previous YAML configurations may be no longer compatible. Use the new **visual editor** to recreate your cards effortlessly!
 
 ## ✨ Features
 
-* **Five Widget Types in One:**
-    * `Ticker Tape` (Scrolling horizontal bar)
-    * `Tickers` (Vertical list of symbols)
-    * `Single Quote` (Detailed view of one symbol)
-    * `Stock Heatmap` (Market-wide sector visualization)
-    * `Forex Cross Rates` (Currency matrix)
-* **Highly Customizable:** Easily configure color themes, language, dimensions, and widget-specific settings via YAML for each widget type.
+* **Ten Widget Types in One:**
+
+  * `Ticker Tape` (Scrolling horizontal bar)
+  * `Tickers` (Vertical list of symbols)
+  * `Single Quote` (Detailed view of one symbol)
+  * `Stock Heatmap` (Market-wide sector visualization)
+  * `Forex Cross Rates` (Currency matrix)
+  * `Technical Analysis` (Candlestick + indicators)
+  * `News` (Finance-focused news ticker)
+  * `ETF Heatmap` (Exchange-traded funds by region)
+  * `Forex Heat Map` (Currency pair strength map)
+  * `Economic Calendar` (Macro data releases)
+* **Fully Visual Configuration:** Configure your cards easily with a visual editor (no YAML needed!)
+* **Highly Customizable:** Control display mode, theme, symbols, sizing (px or %), languages, filters, and more.
+* **Multi-language Support:** Over 20 languages supported including English, Turkish, German, French, etc.
 * **Easy Installation:** Install with a single click via the Home Assistant Community Store (HACS).
 
 ## 🛠️ Installation
 
 ### HACS Installation (Recommended)
 
-1.  If you don't have it, install [HACS](https://hacs.xyz/).
-2.  Go to HACS > Frontend.
-3.  Search for `TradingView Widget Card`, select it, and install.
-4.  Clear your browser' or mobile HA app's cache
-5.  Ctrl+F5 for browsers
+1. If you don't have it, install [HACS](https://hacs.xyz/).
+2. Go to HACS > Frontend.
+3. Search for `TradingView Widget Card`, select it, and install.
+4. Clear your browser or mobile HA app cache.
+5. Ctrl+F5 for browsers.
 
 ### Manual Installation
 
-1.  Download the `tradingview-widget-card.js` file from the latest release of your project.
-2.  Copy the file to your Home Assistant `/www/Tradingview-Widget-Card/tradingview-widget-card.js` directory.
-3.  In Home Assistant, go to **Settings > Dashboards**.
-4.  Click the three dots in the top right and select **"Resources"**.
-5.  Click **"Add Resource"** and enter the following:
-    * **URL:** `/local/Tradingview-Widget-Card/tradingview-widget-card.js`
-    * **Resource Type:** `JavaScript Module`
-6.  Click **"Create"** and claer your browser's cache, refresh your browser via Ctrl+f5.
+1. Download the `tradingview-widget-card.js` file from the latest release.
+2. Copy the file to your Home Assistant `/www/Tradingview-Widget-Card/` directory.
+3. In Home Assistant, go to **Settings > Dashboards**.
+4. Click the three dots in the top right and select **"Resources"**.
+5. Click **"Add Resource"** and enter:
+
+   * **URL:** `/local/Tradingview-Widget-Card/tradingview-widget-card.js`
+   * **Resource Type:** `JavaScript Module`
+6. Click **"Create"**, clear your browser's cache, and refresh with Ctrl+F5.
+
+---
+
+## 🚀 What's New in v2.0?
+
+| Feature               | Old Version (v1.x)                                                   | NEW VERSION (v2.0)                                                                           |
+| --------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **Widget Count**      | 5                                                                    | 10                                                                                           |
+| **Supported Widgets** | Ticker Tape, Tickers, Single Quote, Stock Heatmap, Forex Cross Rates | ✅ + Technical Analysis<br>✅ News<br>✅ ETF Heatmap<br>✅ Forex Heat Map<br>✅ Economic Calendar |
+| **Configuration**     | Manual YAML Only                                                     | ✅ Visual Editor + YAML                                                                       |
+| **Customization**     | Basic                                                                | ✅ Advanced Block Size / Feed Filter / Display Modes                                          |
+| **Language Support**  | ❌                                                                    | ✅ 20+ languages                                                                              |
+| **Sizing**            | Pixels (`px`) only                                                   | ✅ Pixels + Percent (`%`)                                                                     |
+| **Ease of Use**       | 😓                                                                   | 😍                                                                                           |
+
+---
+
+## ⚠️ Migration Notice
+
+> Your existing YAML-based configurations from v1.x may not work with v2.0. The structure and logic have changed entirely.
+
+However, thanks to the new **visual editor**, you can easily recreate your old setups **without writing a single line of YAML**. Use the visual UI to pick widget type, options, tickers, colors, dimensions, and more.
 
 ---
 
 ## ⚙️ Configuration Options
+Add your card via Card Picker of Home Assistant
 
-### General Options
+![image1](images/picker.png)
 
-These options apply to all widget types unless otherwise noted.
+## Fully Visual Configuration
+Please refer to the **visual editor** for most configuration. Manual YAML is still supported for advanced users. For YAML usage examples, see the section below.
 
-| Option | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `type` | string | **Required** | Must be `custom:tradingview-widget-card`. |
-| `widget_type`| string | `ticker-tape`| Specifies the widget to display. See types below. |
-| `title` | string | `(none)` | The title displayed at the top of the card. |
-| `color_theme`| string | `dark` | Color theme. Can be `dark` or `light`. |
-| `locale` | string | `en` | Widget language (`tr`, `en`, `de`, etc.). |
-| `is_transparent`| boolean | `false` | If `true`, the widget's background is transparent. |
-| `height` | number | (Varies) | The height of the widget in pixels. |
+![image1](images/ui.png)
 
-### Widget-Specific Options
-
-#### `Ticker Tape` (Scrolling Tape)
-
-| Option | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `pairs` | list | **Required** | A list of symbols to display. Can be simple strings (e.g., `BIST:XU100`) or objects for the `tickers` type (e.g., `{ proName: '..', title: '..' }`). |
-| `show_logo` | boolean | `true` | Shows the logos next to the symbols. |
-| `display_mode` | string | `regular` | **(Ticker Tape only)** Display mode. Currently only `regular` is supported. |
-
-#### `Tickers`
-
-| Option | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `pairs` | list | **Required** | A list of symbols to display. Can be simple strings (e.g., `BIST:XU100`) or objects for the `tickers` type (e.g., `{ proName: '..', title: '..' }`). |
-| `show_logo` | boolean | `true` | Shows the logos next to the symbols. |
-| `display_mode` | string | `regular` | **(Ticker Tape only)** Display mode. Currently only `regular` is supported. |
-
-
-#### `Single Quote`
-
-| Option | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `pairs` | list | **Required** | A list containing the single symbol to display. Only the first item in the list is used. |
-
-
-
-#### `Stock Heatmap`
-
-| Option | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `data_source` | string | **Required** | The market to display (e.g., `"S&P 500"`, `"NASDAQ 100"`, `"BIST 100"`). |
-| `grouping` | string | `sector` | How to group the symbols (e.g., `"industry"`). |
-| `is_zoom_enabled`| boolean | `true` | Enables zooming into the map with the mouse wheel. |
-| `has_symbol_tooltip`| boolean| `true` | Shows a detail tooltip when hovering over a symbol. |
-
-
-
-#### `Forex Cross Rates`
-
-| Option | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `currencies` | list | **Required** | A list of currency codes to compare (e.g., `"USD"`, `"EUR"`, `"TRY"`). Must contain at least two. |
-| `background_color`| string | `(none)` | Sets a specific background color for the widget using a hex code (e.g., `'#131722'`). |
-
-
+> Note: New widgets like `technical-analysis`, `news`, `etf-heatmap`, `forex-heat-map`, and `economic-calendar` support **additional filtering**, **display modes**, and **data source configuration**, which will be detailed in the updated docs soon.
 
 ---
 
-## YAML Examples
+## 📘 YAML Examples
+Check the documentation or visual editor for the latest syntax.
 
-Below are comprehensive YAML examples for each widget type, showing all available options.
-
-### 1. Ticker Tape
-
-Displays a horizontally scrolling financial data tape.
-
+### Ticker Tape
 ```yaml
-type: custom:tradingview-widget-card
-widget_type: ticker-tape      # (Default: 'ticker-tape')
-title: Markets (Scrolling Tape)
-height: 46                    # (Default: 46) Height in pixels.
-color_theme: dark             # (Default: 'dark') Can be 'dark' or 'light'.
-locale: en                    # (Default: 'en') Widget language.
-show_logo: true               # (Default: true) Shows symbol logos.
-display_mode: regular         # (Default: 'regular') View mode for this widget.
-pairs:
-  - OANDA:USDTRY
-  - OANDA:EURTRY
-  - BINANCE:BTCUSDTPERP
-  - BIST:XU100
+- type: custom:tradingview-widget-card
+  widget_type: ticker-tape
+  title: Piyasa Şeridi
+  pairs:
+    - OANDA:USDTRY
+    - OANDA:EURTRY
+    - BINANCE:BTCUSDTPERP
+    - BIST:XU100
+  show_symbol_logo: true
+  display_mode: regular # regular, adaptive, compact
+  is_transparent: false
+  height: 50px
+  width: 100%
+  color_theme: dark # dark, light
+  locale: tr
 ```
-![image1](images/scroll.png)
 
-### 2. Tickers
-
-Creates a static, vertical list of symbols.
-
+### Tickers
 ```yaml
-type: custom:tradingview-widget-card
-widget_type: tickers
-title: My Watchlist
-height: 250                   # (Default: 75)
-color_theme: dark
-locale: en
-show_logo: true
-# For this mode, assigning a custom title to each symbol is best practice.
-pairs:
-  - proName: BIST:XU100
-    title: BORSA ISTANBUL
-  - proName: SAXO:XAUUSD
-    title: GOLD / USD
+- type: custom:tradingview-widget-card
+  widget_type: tickers
+  title: Popüler Hisseler
+  pairs:
+    - NASDAQ:AAPL
+    - NASDAQ:GOOGL
+    - NASDAQ:MSFT
+  show_symbol_logo: true
+  height: 75px
+  width: 100%
+  color_theme: light
+  locale: en
+  is_transparent: false
 ```
-![image2](images/static.png)
 
-### 3. Single Quote
-
-Shows a detailed summary of the *first* symbol in the `pairs` list.
-
+### Single Quote
 ```yaml
-type: custom:tradingview-widget-card
-widget_type: single-quote
-title: Apple Inc. (AAPL)
-height: 100                   # (Default: 100)
-color_theme: dark
-locale: en
-# ONLY the first symbol in the 'pairs' list is used.
-pairs:
-  - NASDAQ:AAPL
+- type: custom:tradingview-widget-card
+  widget_type: single-quote
+  title: USD/TRY Paritesi
+  pairs:
+    - OANDA:USDTRY
+  is_transparent: false
+  height: 100px
+  width: 100%
+  color_theme: dark
+  locale: tr
 ```
-![image3](images/single.png)
 
-### 4. Stock Heatmap
-
-Visualizes an entire market by sector. This widget does not use the `pairs` list.
-
+### Stock Heatmap
 ```yaml
-type: custom:tradingview-widget-card
-widget_type: stock-heatmap
-title: BIST 100 Sector Heatmap
-height: 500                   # (Default: 500)
-color_theme: dark
-locale: tr
-# --- Heatmap Specific Options ---
-data_source: BIST100            # (Required) Market to display. e.g., "S&P 500", "NASDAQ 100".
-grouping: sector                # (Default: 'sector') How to group symbols. e.g., "industry".
-is_zoom_enabled: true           # (Default: true) Enables zooming into the map.
-has_symbol_tooltip: true        # (Default: true) Shows symbol details on hover.
+- type: custom:tradingview-widget-card
+  widget_type: stock-heatmap
+  title: ABD Hisse Senedi Isı Haritası
+  data_source: SPX500 # Örneğin SPX500, NASDAQ, DowJones
+  height: 500px
+  width: 100%
+  exchange: ""
+  grouping: sector
+  block_size: market_cap_basic
+  block_color: change
+  has_top_bar: false
+  is_zoom_enabled: true
+  has_symbol_tooltip: true
+  is_data_set_enabled: false
+  is_mono_size: true
+  color_theme: dark
+  locale: en
 ```
-![image4](images/heatmap.png)
 
-### 5. Forex Cross Rates
-
-Displays a matrix of exchange rates between selected currencies. This widget does not use the `pairs` list.
-
+### ETF Heatmap
 ```yaml
-type: custom:tradingview-widget-card
-widget_type: forex-cross-rates
-title: Forex Cross Rates
-height: 400                   # (Default: 400)
-color_theme: dark
-locale: en
-# --- Cross Rates Specific Options ---
-currencies:                   # (Required) At least 2 currency codes.
-  - TRY
-  - USD
-  - EUR
-  - GBP
-  - CHF
-  - JPY
-background_color: '#131722'   # (Optional) A specific background color hex code.
+- type: custom:tradingview-widget-card
+  widget_type: etf-heatmap
+  title: Küresel ETF Isı Haritası
+  data_source: AllUSEtf # AllUSEtf, AllAUEtf, vb.
+  height: 500px
+  grouping: asset_class # asset_class, no_group
+  block_size: volume # volume, Value.Traded, monoSize
+  block_color: change # change, Perf.W, Perf.1M, vb.
+  has_top_bar: false
+  is_zoom_enabled: true
+  has_symbol_tooltip: true
+  is_data_set_enabled: false
+  is_mono_size: false
+  locale: en
+  color_theme: dark
+  width: 100%
 ```
-![image5](images/cross.png)
+### Forex Cross Rates
+```yaml
+- type: custom:tradingview-widget-card
+  widget_type: forex-cross-rates
+  title: Döviz Çapraz Kurları
+  currencies:
+    - EUR
+    - USD
+    - GBP
+    - JPY
+    - CHF
+    - CAD
+    - TRY
+  color_theme: dark
+  locale: en
+  background_color: "#000000"
+  width: 100%
+  height: 500px
+```
+
+### Forex Heatmap
+```yaml
+- type: custom:tradingview-widget-card
+  widget_type: forex-heat-map
+  title: Döviz Isı Haritası
+  currencies:
+    - EUR
+    - USD
+    - JPY
+    - GBP
+    - CHF
+    - AUD
+    - CAD
+  color_theme: dark
+  locale: en
+  is_transparent: false
+  background_color: "#000000"
+  width: 100%
+  height: 300px
+```
+
+### Technical Analysis
+```yaml
+- type: custom:tradingview-widget-card
+  widget_type: technical-analysis
+  title: BTC/USDT Teknik Analiz
+  pairs:
+    - BINANCE:BTCUSDT
+  interval: 1D # 1m, 5m, 15m, 1H, 4H, 1D, 1W, 1M
+  height: 100%
+  width: 100%
+  show_interval_tabs: true
+  is_transparent: false
+  display_mode: single
+  locale: en
+  color_theme: dark
+```
+### Economic Calendar
+```yaml
+- type: custom:tradingview-widget-card
+  widget_type: economic-calendar
+  title: Ekonomik Takvim
+  height: 450px
+  country_filter: us,eu,tr
+  importance_filter: -1,0,1
+  color_theme: dark
+  locale: en
+  width: 100%
+  is_transparent: false
+```
+
+### News
+```yaml
+- type: custom:tradingview-widget-card
+  widget_type: news
+  title: Piyasa Haberleri
+  display_mode: adaptive # adaptive, regular, compact
+  feed_mode: all_symbols # all_symbols, symbol, market
+  # feed_mode 'symbol' ise aşağıdaki satırı kullanın:
+  # symbol: NASDAQ:AAPL
+  # feed_mode 'market' ise aşağıdaki satırı kullanın:
+  # market: crypto # crypto, forex, stock, index, futures, cfd
+  height: 450px
+  color_theme: dark
+  locale: en
+  width: 100%
+  is_transparent: false
+```
+
+---
 
 ## ⭐ Support
+
 If you like this card, feel free to ⭐ star the project on GitHub and share it with the Home Assistant community!
+
+> We're excited to see the amazing dashboards you'll create with TradingView Widget Card v2.0! 🎉
