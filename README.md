@@ -107,6 +107,7 @@ Check the documentation or visual editor for the latest syntax.
 ```
 
 ### Tickers
+![image1](images/tickers.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: tickers
@@ -124,6 +125,7 @@ Check the documentation or visual editor for the latest syntax.
 ```
 
 ### Single Quote
+![image1](images/tick.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: single-quote
@@ -160,6 +162,7 @@ Check the documentation or visual editor for the latest syntax.
 ```
 
 ### ETF Heatmap
+![image1](images/etf.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: etf-heatmap
@@ -200,6 +203,7 @@ Check the documentation or visual editor for the latest syntax.
 ```
 
 ### Forex Heatmap
+![image1](images/forex.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: forex-heat-map
@@ -221,6 +225,7 @@ Check the documentation or visual editor for the latest syntax.
 ```
 
 ### Technical Analysis
+![image1](images/a.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: technical-analysis
