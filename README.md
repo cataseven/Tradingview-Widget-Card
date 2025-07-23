@@ -242,6 +242,7 @@ Check the documentation or visual editor for the latest syntax.
   color_theme: dark
 ```
 ### Economic Calendar
+![image1](images/c.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: economic-calendar
@@ -256,6 +257,7 @@ Check the documentation or visual editor for the latest syntax.
 ```
 
 ### News
+![image1](images/n.png)
 ```yaml
 - type: custom:tradingview-widget-card
   widget_type: news
