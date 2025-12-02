@@ -281,6 +281,74 @@ Check the documentation or visual editor for the latest syntax.
   is_transparent: false
 ```
 
+### Market Overview Watchlist
+![image1](images/new1.png)
+
+```yaml
+type: custom:tradingview-widget-card
+widget_type: market-overview
+title: ""
+height: 550px
+width: 100%
+color_theme: dark
+locale: en
+date_range: 12M
+show_chart: true
+show_floating_tooltip: true
+is_transparent: false
+tab_config: |-
+  Crypto:
+   - BINANCE:BTCUSDT
+   - BINANCE:ETHUSDT
+  Stock:
+   - NASDAQ:AAPL
+   - NASDAQ:TSLA
+  Indices:
+  - INDEX:NKY
+```
+
+### Stock Market Hotlist
+![image1](images/new2.png)
+
+```yaml
+type: custom:tradingview-widget-card
+widget_type: stock-market-hotlists
+title: ""
+height: 550px
+width: 100%
+exchange: US Exchanges
+date_range: 12M
+show_chart: true
+show_floating_tooltip: true
+is_transparent: false
+color_theme: dark
+locale: en
+```
+
+### Market Quotes
+![image1](images/new3.png)
+
+```yaml
+type: custom:tradingview-widget-card
+widget_type: market-quotes
+title: ""
+height: 550px
+width: 100%
+show_symbol_logo: true
+is_transparent: false
+color_theme: dark
+locale: en
+tab_config: |-
+  Indices:
+   - FOREXCOM:SPXUSD
+   - FOREXCOM:NSXUSD
+  Futures:
+   - BMFBOVESPA:ISP1!
+   - CMCMARKETS:GOLD
+```
+
+
+
 ---
 
 ## ⭐ Support
