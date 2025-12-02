@@ -12,7 +12,7 @@ This card is a bridge to Tradingview widgets and all card ui or visual things ar
 
 ## ✨ Features
 
-* **Ten Widget Types in One:**
+* **13 Widget Types in One:**
 
   * `Ticker Tape` (Scrolling horizontal bar)
   * `Tickers` (Vertical list of symbols)
