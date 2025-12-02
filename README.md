@@ -24,6 +24,9 @@ This card is a bridge to Tradingview widgets and all card ui or visual things ar
   * `ETF Heatmap` (Exchange-traded funds by region)
   * `Forex Heat Map` (Currency pair strength map)
   * `Economic Calendar` (Macro data releases)
+  * `Market Overview` (Market Watchlist)
+  * `Stock Market` (Stock Market Watchlist)
+  * `Market Data` (Detailed Market Watchlist)
 * **Fully Visual Configuration:** Configure your cards easily with a visual editor (no YAML needed!)
 * **Highly Customizable:** Control display mode, theme, symbols, sizing (px or %), languages, filters, and more.
 * **Multi-language Support:** Over 20 languages supported including English, Turkish, German, French, etc.
