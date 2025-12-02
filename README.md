@@ -6,6 +6,8 @@
 
 This custom card allows you to embed **ten different**, fully configurable TradingView widgets into your Home Assistant dashboards. With a single card file, you can display market data in a variety of formats.
 
+This card is a bridge to Tradingview widgets and all card ui or visual things are managed by Tradingview!
+
 > ⚠️ This is v2.0 — a complete rewrite. All previous YAML configurations may be no longer compatible. Use the new **visual editor** to recreate your cards effortlessly!
 
 ## ✨ Features
