@@ -60,7 +60,7 @@ This card is a bridge to Tradingview widgets and all card ui or visual things ar
 
 | Feature               | Old Version (v1.x)                                                   | NEW VERSION (v2.0)                                                                           |
 | --------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| **Widget Count**      | 5                                                                    | 10                                                                                           |
+| **Widget Count**      | 5                                                                    | 13                                                                                           |
 | **Supported Widgets** | Ticker Tape, Tickers, Single Quote, Stock Heatmap, Forex Cross Rates | ✅ + Technical Analysis<br>✅ News<br>✅ ETF Heatmap<br>✅ Forex Heat Map<br>✅ Economic Calendar |
 | **Configuration**     | Manual YAML Only                                                     | ✅ Visual Editor + YAML                                                                       |
 | **Customization**     | Basic                                                                | ✅ Advanced Block Size / Feed Filter / Display Modes                                          |
